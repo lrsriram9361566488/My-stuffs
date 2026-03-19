@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Photo Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body, html { 
+            height: 100%; 
+            width: 100%; 
+            overflow: hidden; 
+            background: #000;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .swiper { width: 100%; height: 100vh; }
+
+        .swiper-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Overlays */
+        .ui-overlay-top {
+            position: absolute; top: 0; left: 0; width: 100%;
+            padding: 40px 24px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+            z-index: 10; display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .ui-overlay-bottom {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            padding: 60px 24px 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+            z-index: 10;
+        }
+
+        .btn-view {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-view:active {
+            transform: scale(0.95);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Swipe Indicator Animation */
+        .swipe-up-indicator {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            opacity: 0.6; animation: bounce 2s infinite; z-index: 20;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-10px) translateX(-50%);}
+            60% {transform: translateY(-5px) translateX(-50%);}
+        }
+
+        /* Wrong Password Shake Animation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+        .animate-shake { animation: shake 0.3s ease-in-out; }
+    </style>
+</head>
+<body>
+
+    <div class="ui-overlay-top">
+        <h1 class="text-white text-2xl font-black tracking-tighter">GALLERY.</h1>
+        <div class="flex gap-4">
+            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"></path></svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/pdTwbR5m/RIYAN-20231002-122939-sriram-bslr.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p class="text-indigo-400 font-bold tracking-widest text-xs uppercase mb-2 flex items-center gap-2">
+                        <span>🔒 Private</span> • Collection 01
+                    </p>
+                    <h2 class="text-white text-5xl font-black mb-4 leading-tight">Family<br>Moments</h2>
+                    <p class="text-white/60 mb-8 max-w-xs">Shared Google Photos album featuring our precious family memories. Password required.</p>
+                    <button onclick="openModal(event)" class="btn-view inline-block px-10 py-5 rounded-2xl text-white font-bold text-lg w-full text-left flex justify-between items-center">
+                        <span>Unlock Album</span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/QMyqBr62/LR-SRIRAM20250930-103422-LR-Sriram.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p class="text-orange-400 font-bold tracking-widest text-xs uppercase mb-2 flex items-center gap-2">
+                        <span>🔓 Public</span> • Collection 02
+                    </p>
+                    <h2 class="text-white text-5xl font-black mb-4 leading-tight">Karur<br>Kovil</h2>
+                    <p class="text-white/60 mb-8 max-w-xs">Explore the divine beauty of Kalyana Pasupatheswarar Temple.</p>
+                    <a href="https://photos.app.goo.gl/YuyS1NDJ67DzS8iH9" target="_blank" class="btn-view inline-block px-10 py-5 rounded-2xl text-white font-bold text-lg w-full text-left">Open Full Album</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/C5m51wJT/IMG-20260315-WA0028.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p class="text-emerald-400 font-bold tracking-widest text-xs uppercase mb-2 flex items-center gap-2">
+                        <span>🔓 Public</span> • Collection 03
+                    </p>
+                    <h2 class="text-white text-5xl font-black mb-4 leading-tight">Nature<br>Vibes</h2>
+                    <p class="text-white/60 mb-8 max-w-xs">High-definition landscape captures and serene nature photography.</p>
+                    <a href="https://photos.app.goo.gl/ZSk162rxZAXnTCcB6" target="_blank" class="btn-view inline-block px-10 py-5 rounded-2xl text-white font-bold text-lg w-full text-left">Open Full Album</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swipe-up-indicator">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+    </div>
+
+    <div id="authModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-xl" onclick="closeModal()"></div>
+        
+        <div id="modalBox" class="relative bg-white/10 border border-white/20 rounded-3xl p-8 w-[85%] max-w-sm text-center shadow-2xl backdrop-blur-3xl transform scale-95 transition-transform duration-300">
+            <div class="w-16 h-16 rounded-full bg-indigo-500/20 mx-auto flex items-center justify-center mb-4 border border-indigo-500/50">
+                <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            
+            <h3 class="text-white text-2xl font-black mb-2 tracking-tight">Protected Album</h3>
+            <p class="text-white/60 text-sm mb-6">Enter the password to view family photos.</p>
+            
+            <input type="password" id="passInput" placeholder="Password" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white text-center font-bold tracking-widest placeholder-white/30 focus:outline-none focus:border-indigo-500 mb-2 transition-colors">
+            
+            <p id="errorMsg" class="text-red-400 text-xs font-bold mb-4 h-4 opacity-0 transition-opacity">Incorrect password.</p>
+            
+            <div class="flex gap-3 mt-2">
+                <button onclick="closeModal()" class="flex-1 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors">Cancel</button>
+                <button onclick="checkPass()" class="flex-1 py-4 rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-500 shadow-[0_0_15px_rgba(79,70,229,0.5)] transition-colors">Unlock</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // --- 1. SLIDER CONFIGURATION ---
+        const swiper = new Swiper(".mySwiper", {
+            direction: "vertical", 
+            loop: true,
+            mousewheel: true,
+            keyboard: true,
+            speed: 800,
+            parallax: true,
+            effect: 'creative',
+            creativeEffect: {
+                prev: { translate: [0, "-20%", -1] },
+                next: { translate: [0, "100%", 0] },
+            },
+        });
+
+        // --- 2. PASSWORD SECURITY LOGIC ---
+        
+        // CHANGE YOUR PASSWORD HERE:
+        const FAMILY_PASSWORD = "9361"; 
+        const FAMILY_LINK = "https://photos.app.goo.gl/sBS1d3DrkjkuJFNF6";
+
+        const modal = document.getElementById('authModal');
+        const modalBox = document.getElementById('modalBox');
+        const passInput = document.getElementById('passInput');
+        const errorMsg = document.getElementById('errorMsg');
+
+        function openModal(e) {
+            e.preventDefault();
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalBox.classList.remove('scale-95');
+            passInput.value = ''; // clear previous tries
+            errorMsg.classList.add('opacity-0'); // hide error
+            
+            // Auto-focus the password box
+            setTimeout(() => passInput.focus(), 100);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalBox.classList.add('scale-95');
+            passInput.blur();
+        }
+
+        function checkPass() {
+            if (passInput.value === FAMILY_PASSWORD) {
+                // Success! Open the Google Photos link
+                window.open(FAMILY_LINK, '_blank');
+                closeModal();
+            } else {
+                // Fail! Show error and shake animation
+                errorMsg.classList.remove('opacity-0');
+                modalBox.classList.add('animate-shake');
+                
+                // Remove shake class so it can trigger again next time
+                setTimeout(() => modalBox.classList.remove('animate-shake'), 400);
+                passInput.value = '';
+                passInput.focus();
+            }
+        }
+
+        // Allow pressing "Enter" on the keyboard to submit
+        passInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPass();
+            }
+        });
+    </script>
+</body>
+</html>
