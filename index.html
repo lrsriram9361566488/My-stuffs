@@ -168,6 +168,305 @@
     <div id="topOverlay" class="ui-overlay-top">
         <h1 class="text-white text-2xl md:text-3xl font-black tracking-tighter">GALLERY.</h1>
         <div class="flex gap-2 md:gap-3">
+            <!-- 1. Focus Mode Button (Eye Icon) -->
+            <button onclick="toggleFocusMode()" title="Toggle Focus Mode" class="glass-btn w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            </button>
+            <!-- 2. Search Button (Magnifying Glass) -->
+            <button onclick="openSearchModal()" title="Search Collections" class="glass-btn w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </button>
+            <!-- 3. Share Button (Network Node Icon) -->
+            <button onclick="shareGallery()" title="Share Gallery" class="glass-btn w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 8a3 3 0 100-6 3 3 0 000 6zM6 15a3 3 0 100-6 3 3 0 000 6zM18 22a3 3 0 100-6 3 3 0 000 6zM8.59 13.51l6.83 3.98m-.01-10.98l-6.82 3.98"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN SLIDER -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <!-- Collection 01 (Private) -->
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/pdTwbR5m/RIYAN-20231002-122939-sriram-bslr.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p data-swiper-parallax="-100" class="text-indigo-400 font-bold tracking-widest text-xs md:text-sm uppercase mb-2 flex items-center gap-2">
+                        <span class="pulse-dot pulse-red"></span> Private • Collection 01
+                        <span id="like-badge-0" class="ml-auto hidden text-red-500 text-sm">❤️</span>
+                    </p>
+                    <h2 data-swiper-parallax="-300" class="text-white text-4xl md:text-6xl font-black mb-3 leading-tight">Family<br>Moments</h2>
+                    <p data-swiper-parallax="-200" class="text-white/70 mb-6 md:mb-8 text-sm md:text-base max-w-sm">Shared Google Photos album featuring our precious family memories. Password required.</p>
+                    <div data-swiper-parallax="-100">
+                        <button onclick="openModal(event, 'album1')" class="btn-view inline-flex px-8 py-4 md:py-5 rounded-2xl text-white font-bold text-base md:text-lg w-full justify-between items-center">
+                            <span>Unlock Album</span>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collection 02 (Public) -->
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/QMyqBr62/LR-SRIRAM20250930-103422-LR-Sriram.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p data-swiper-parallax="-100" class="text-orange-400 font-bold tracking-widest text-xs md:text-sm uppercase mb-2 flex items-center gap-2">
+                        <span class="pulse-dot pulse-green"></span> Public • Collection 02
+                        <span id="like-badge-1" class="ml-auto hidden text-red-500 text-sm">❤️</span>
+                    </p>
+                    <h2 data-swiper-parallax="-300" class="text-white text-4xl md:text-6xl font-black mb-3 leading-tight">Karur<br>Kovil</h2>
+                    <p data-swiper-parallax="-200" class="text-white/70 mb-6 md:mb-8 text-sm md:text-base max-w-sm">Explore the divine beauty of Kalyana Pasupatheswarar Temple.</p>
+                    <div data-swiper-parallax="-100">
+                        <a href="https://photos.app.goo.gl/YuyS1NDJ67DzS8iH9" target="_blank" class="btn-view inline-block px-8 py-4 md:py-5 rounded-2xl text-white font-bold text-base md:text-lg w-full text-left">Open Full Album</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collection 03 (Public) -->
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/C5m51wJT/IMG-20260315-WA0028.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p data-swiper-parallax="-100" class="text-emerald-400 font-bold tracking-widest text-xs md:text-sm uppercase mb-2 flex items-center gap-2">
+                        <span class="pulse-dot pulse-green"></span> Public • Collection 03
+                        <span id="like-badge-2" class="ml-auto hidden text-red-500 text-sm">❤️</span>
+                    </p>
+                    <h2 data-swiper-parallax="-300" class="text-white text-4xl md:text-6xl font-black mb-3 leading-tight">Nature<br>Vibes</h2>
+                    <p data-swiper-parallax="-200" class="text-white/70 mb-6 md:mb-8 text-sm md:text-base max-w-sm">High-definition landscape captures and serene nature photography.</p>
+                    <div data-swiper-parallax="-100">
+                        <a href="https://photos.app.goo.gl/ZSk162rxZAXnTCcB6" target="_blank" class="btn-view inline-block px-8 py-4 md:py-5 rounded-2xl text-white font-bold text-base md:text-lg w-full text-left">Open Full Album</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collection 04 (Private) -->
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/nhd8hDYR/IMG-20240330-172418-BURST2-(1)-1.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p data-swiper-parallax="-100" class="text-blue-400 font-bold tracking-widest text-xs md:text-sm uppercase mb-2 flex items-center gap-2">
+                        <span class="pulse-dot pulse-red"></span> Private • Collection 04
+                        <span id="like-badge-3" class="ml-auto hidden text-red-500 text-sm">❤️</span>
+                    </p>
+                    <h2 data-swiper-parallax="-300" class="text-white text-4xl md:text-6xl font-black mb-3 leading-tight">New<br>Memories</h2>
+                    <p data-swiper-parallax="-200" class="text-white/70 mb-6 md:mb-8 text-sm md:text-base max-w-sm">Explore the latest high-definition photograph collections. Password required.</p>
+                    <div data-swiper-parallax="-100">
+                        <button onclick="openModal(event, 'album4')" class="btn-view inline-flex px-8 py-4 md:py-5 rounded-2xl text-white font-bold text-base md:text-lg w-full justify-between items-center">
+                            <span>Unlock Album</span>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collection 05 (Private - Google Site) -->
+            <div class="swiper-slide" style="background-image: url('https://i.postimg.cc/sDgx6pX8/LR-SRIRAM20241018-180720-LR-Sriram-PORTRAIT.jpg');">
+                <div class="ui-overlay-bottom">
+                    <p data-swiper-parallax="-100" class="text-purple-400 font-bold tracking-widest text-xs md:text-sm uppercase mb-2 flex items-center gap-2">
+                        <span class="pulse-dot pulse-red"></span> Private • Collection 05
+                        <span id="like-badge-4" class="ml-auto hidden text-red-500 text-sm">❤️</span>
+                    </p>
+                    <h2 data-swiper-parallax="-300" class="text-white text-4xl md:text-6xl font-black mb-3 leading-tight">Shared<br>SITE</h2>
+                    <p data-swiper-parallax="-200" class="text-white/70 mb-6 md:mb-8 text-sm md:text-base max-w-sm">Access the locked SITE overview and notes directly online. Password required.</p>
+                    <div data-swiper-parallax="-100">
+                        <button onclick="openModal(event, 'album5')" class="btn-view inline-flex px-8 py-4 md:py-5 rounded-2xl text-white font-bold text-base md:text-lg w-full justify-between items-center">
+                            <span>Unlock Site</span>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swipe-up-indicator">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+    </div>
+
+    <!-- HEART POP CONTAINER -->
+    <div id="heartContainer"></div>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-xl" onclick="closeModal()"></div>
+        
+        <div id="modalBox" class="relative bg-white/10 border border-white/20 rounded-3xl p-8 w-[85%] max-w-sm text-center shadow-2xl backdrop-blur-3xl transform scale-95 transition-transform duration-300">
+            <div class="w-16 h-16 rounded-full bg-indigo-500/20 mx-auto flex items-center justify-center mb-4 border border-indigo-500/50">
+                <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            </div>
+            
+            <h3 class="text-white text-2xl font-black mb-2 tracking-tight">Protected Album</h3>
+            <p class="text-white/60 text-sm mb-6">Enter the password to view private content.</p>
+            
+            <div class="relative mb-2">
+                <input type="password" id="passInput" placeholder="Password" class="w-full bg-black/40 border border-white/10 rounded-xl pl-4 pr-12 py-4 text-white text-center font-bold tracking-widest placeholder-white/30 focus:outline-none focus:border-indigo-500 transition-colors">
+                <button onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white p-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                </button>
+            </div>
+            
+            <p id="errorMsg" class="text-red-400 text-xs font-bold mb-4 h-4 opacity-0 transition-opacity">Incorrect password.</p>
+            
+            <div class="flex gap-3 mt-2">
+                <button onclick="closeModal()" class="flex-1 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors">Cancel</button>
+                <button onclick="checkPass()" class="flex-1 py-4 rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-500 shadow-[0_0_15px_rgba(79,70,229,0.5)] transition-colors">Unlock</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="searchModal" class="fixed inset-0 z-[100] flex items-start justify-center pt-20 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-xl" onclick="closeSearchModal()"></div>
+        
+        <div class="relative bg-white/10 border border-white/20 rounded-3xl p-6 w-[90%] max-w-md shadow-2xl backdrop-blur-3xl">
+            <div class="flex items-center gap-3 bg-black/40 border border-white/10 rounded-2xl px-4 py-3 mb-4">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" id="searchInput" oninput="filterCollections()" placeholder="Search collections..." class="bg-transparent text-white font-bold w-full focus:outline-none placeholder-white/40">
+            </div>
+            
+            <div id="searchResults" class="max-h-60 overflow-y-auto space-y-2 pr-1">
+                <!-- Search Items populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // --- 1. SLIDER & PARALLAX CONFIGURATION ---
+        const swiper = new Swiper(".mySwiper", {
+            direction: "vertical", 
+            loop: t         
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* Overlays & Transitions */
+        .ui-overlay-top, .ui-overlay-bottom {
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ui-overlay-top {
+            position: absolute; top: 0; left: 0; width: 100%;
+            padding: 24px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+            z-index: 10; display: flex; justify-content: space-between; align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .ui-overlay-top { padding: 40px 48px; }
+        }
+
+        .ui-overlay-bottom {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            padding: 40px 24px 32px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .ui-overlay-bottom {
+                padding: 60px 48px 48px;
+                max-width: 600px;
+            }
+        }
+
+        /* Glassmorphism Buttons & Controls */
+        .btn-view, .glass-btn {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-view:hover, .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-view:active, .glass-btn:active {
+            transform: scale(0.97);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Glass Pagination Bullets */
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .swiper-pagination-bullet-active {
+            height: 24px;
+            border-radius: 12px;
+            background: #ffffff;
+            opacity: 1;
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        /* Glowing Badge Pulsing Indicators */
+        .pulse-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .pulse-red { background: #ef4444; box-shadow: 0 0 8px #ef4444; animation: pulse 1.5s infinite; }
+        .pulse-green { background: #10b981; box-shadow: 0 0 8px #10b981; animation: pulse 1.5s infinite; }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        /* Double Tap Heart Pop Animation */
+        .heart-pop {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            pointer-events: none;
+            z-index: 30;
+            animation: heartAnimation 0.8s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards;
+        }
+
+        @keyframes heartAnimation {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1) translateY(-40px); opacity: 0; }
+        }
+
+        /* Swipe Indicator Animation */
+        .swipe-up-indicator {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            opacity: 0.6; animation: bounce 2s infinite; z-index: 20;
+            pointer-events: none;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-10px) translateX(-50%);}
+            60% {transform: translateY(-5px) translateX(-50%);}
+        }
+
+        /* Wrong Password Shake Animation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+        .animate-shake { animation: shake 0.3s ease-in-out; }
+    </style>
+</head>
+<body>
+
+    <!-- TOP HEADER -->
+    <div id="topOverlay" class="ui-overlay-top">
+        <h1 class="text-white text-2xl md:text-3xl font-black tracking-tighter">GALLERY.</h1>
+        <div class="flex gap-2 md:gap-3">
             <!-- Focus Mode (Hide UI) Button -->
             <button onclick="toggleFocusMode()" title="Toggle Focus Mode" class="glass-btn w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
